@@ -324,5 +324,10 @@ namespace SqlBulkTools
                 }
             }
         }
+
+        public Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials, SqlConnection connection = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

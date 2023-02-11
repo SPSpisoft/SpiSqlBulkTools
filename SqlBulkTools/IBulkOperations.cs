@@ -33,7 +33,8 @@ namespace SqlBulkTools
         /// <param name="credentials"></param>
         /// <returns></returns>
         Task CommitTransactionAsync(string connectionName, SqlCredential credentials = null);
-
+        Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials = null);
+        
         /// <summary>
         /// 
         /// </summary>

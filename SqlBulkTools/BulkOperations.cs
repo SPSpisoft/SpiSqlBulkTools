@@ -67,6 +67,20 @@ namespace SqlBulkTools
             await _transaction.CommitTransactionAsync(connectionName, credentials);
         }
 
+        public async Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials = null)
+        {
+            if (connectionName == null)
+                throw new ArgumentNullException(nameof(connectionName) + " not given");
+
+            if (ConfigurationManager.ConnectionStrings[connectionName] == null)
+                throw new InvalidOperationException("Connection name \'" + connectionName + "\' not found. A valid connection name is required for this operation.");
+
+            if (_transaction == null)
+                throw new InvalidOperationException("No setup found. Use the Setup method to build a new setup then try again.");
+
+            return await _transaction.CommitCountTransactionAsync(connectionName, credentials);
+        }
+
 
         /// <summary>
         /// Commits a transaction to database. A valid setup must exist for operation to be 
@@ -116,6 +130,11 @@ namespace SqlBulkTools
         {
             CollectionSelect<T> tableSelect = list(new Setup<T>(SourceAlias, TargetAlias, this));
             return tableSelect;
+        }
+
+        Task<int> IBulkOperations.CommitCountTransactionAsync(string connectionName, SqlCredential credentials)
+        {
+            throw new NotImplementedException();
         }
     }
 }

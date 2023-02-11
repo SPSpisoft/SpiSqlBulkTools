@@ -2,19 +2,19 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45;net452;net472</TargetFrameworks>
-    <RepositoryUrl>https://github.com/brkmustu/SqlBulkTools</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SPSpisoft/SpiSqlBulkTools</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>adonet bulkoperations bulksql sql bulkhelper sqlbulktools.improve improvebulksql improvesql sqlbulktools</PackageTags>
-    <Authors>SqlBulkTools</Authors>
-    <Product>SqlBulkTools</Product>
+    <Authors>Spisoft</Authors>
+    <Product>SpiSqlBulkTools</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.1.3</Version>
-    <Copyright>SqlBulkTools.Improve 2020</Copyright>
+    <Copyright>SqlBulkTools.SPS 2023</Copyright>
     <PackageProjectUrl>https://github.com/brkmustu/SqlBulkTools</PackageProjectUrl>
     <Description>High-performance C# Bulk operations for SQL Server (starting from 2008) and Azure SQL Database. Supports Bulk Insert, Update, Delete &amp; Merge. Uses SQLBulkCopy under the hood. Please leave a Github star if you find this project useful.</Description>
-    <PackageId>SqlBulkTools.Improve</PackageId>
+    <PackageId>SqlBulkTools.SPS</PackageId>
     <PackageReleaseNotes>Custom mapping expanded in AllColumnSelect</PackageReleaseNotes>
-    <AssemblyName>SqlBulkTools.Improve</AssemblyName>
+    <AssemblyName>SqlBulkTools.SPS</AssemblyName>
     <RootNamespace>SqlBulkTools</RootNamespace>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

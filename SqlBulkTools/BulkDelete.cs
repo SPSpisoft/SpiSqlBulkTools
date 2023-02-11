@@ -78,6 +78,11 @@ namespace SqlBulkTools
             _ext.SetBulkExt(this);
         }
 
+        public Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials, SqlConnection connection)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// At least one MatchTargetOn is required for correct configuration. MatchTargetOn is the matching clause for evaluating 
         /// each row in table. This is usally set to the unique identifier in the table (e.g. Id). Multiple MatchTargetOn members are allowed 

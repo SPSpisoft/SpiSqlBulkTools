@@ -416,7 +416,7 @@ namespace SqlBulkTools
             }
         }
 
-        public async Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials, SqlConnection connection)
+        async Task<int> ITransaction.CommitCountTransactionAsync(string connectionName, SqlCredential credentials, SqlConnection connection)
         {
             int affectedRows = 0;
             if (!_list.Any())
@@ -531,5 +531,9 @@ namespace SqlBulkTools
             return affectedRows;
         }
 
+        public Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

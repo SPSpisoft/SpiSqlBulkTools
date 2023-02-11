@@ -74,7 +74,10 @@ namespace SqlBulkTools
             _ext.SetBulkExt(this);
         }
 
-
+        public Task<int> CommitCountTransactionAsync(string connectionName, SqlCredential credentials, SqlConnection connection = null)
+        {
+            throw new NotImplementedException();
+        }
 
         void ITransaction.CommitTransaction(string connectionName, SqlCredential credentials, SqlConnection connection)
         {
