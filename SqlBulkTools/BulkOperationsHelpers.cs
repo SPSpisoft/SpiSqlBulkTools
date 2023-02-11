@@ -162,6 +162,36 @@ namespace SqlBulkTools
             return command.ToString();
         }
 
+        internal string CompareSet(HashSet<string> columns, string sourceAlias, string targetAlias,
+        string identityColumn, HashSet<string> excludeFromUpdate = null)
+        {
+            var command = new StringBuilder();
+            var paramsSeparated = new List<string>();
+
+            if (excludeFromUpdate == null)
+                excludeFromUpdate = new HashSet<string>();
+
+            command.Append("SELECT COUNT(*) FROM (SELECT * FROM " + sourceAlias + " a Where NOT EXISTS (SELECT 'x' FROM " + targetAlias + " b WHERE ");
+
+            //foreach (var column in columns.ToList().OrderBy(x => x))
+            //    if ((column != identityColumn || identityColumn == null) && !excludeFromUpdate.Contains(column))
+            //        if (column != Constants.InternalId)
+            //            paramsSeparated.Add($"[a].[{column}] = [b].[{column}]");
+
+            foreach (var column in columns.ToList())
+            {
+                if (identityColumn != null && column != identityColumn || identityColumn == null)
+                {
+                    if (column != "InternalId")
+                        paramsSeparated.Add("[a]" + "." + "[" + column + "]" + " = " + "[b]" + "." + "[" + column + "]");
+                }
+            }
+
+            command.Append(string.Join(" and ", paramsSeparated) + " ");
+
+            return command.ToString();
+        }
+
         internal string BuildInsertSet(HashSet<string> columns, string sourceAlias, string identityColumn)
         {
             StringBuilder command = new StringBuilder();
